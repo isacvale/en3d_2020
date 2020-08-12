@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,562;0,639;1,400;1,561&family=Work+Sans:ital,wght@0,259;0,531;0,588;1,258;1,531&display=swap');
+
+/* font-family: 'Lora', serif;
+font-family: 'Work Sans', sans-serif; */
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-variation-settings: 'wght' 350;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --cinza-claro: #fae4cd;
+  --vermelho: #a20021;
+  --preto: #2c363f;
+  --cinza: #96897b;
+  --ciano: #41ead4;
+  --branco: #fff;
+}

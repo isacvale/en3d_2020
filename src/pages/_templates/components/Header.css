@@ -1,0 +1,83 @@
+.CommonHeader {
+    align-items: flex-end;
+    /* background: yellow; */
+    box-sizing: border-box;
+    display: flex;
+    height: 6em;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+
+.CommonHeader__LogoWrapper {
+    align-items: flex-end;
+    display: flex;
+    gap: .85em;
+    position: relative;
+}
+
+.CommonHeader__Logo {
+    position: relative;
+    width: fit-content;
+    top: -0.5em;
+}
+
+.CommonHeader__Logo > svg {
+    position: relative;
+}
+
+.CommonHeader__Logo::before {
+    background: var(--cinza-claro);
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0.5em;
+    position: absolute;
+    top: 0.5em;
+    width: 100%;
+}
+
+.CommonHeader__LogoLabel {
+    /* font-family: Lora; */
+    color: var(--cinza-claro);
+    font-variation-settings: 'wght' 250;
+    font-size: 2.2em;
+    margin-bottom: 0.1em;
+}
+
+.CommonHeader > nav {
+    display: flex;
+    gap: 1em;
+    padding-bottom: 1.5em;
+    padding-right: 1em;
+    position: relative;
+}
+
+.CommonHeader__Link {
+    color: var(--preto);
+    font-variation-settings: 'wght' 350;
+    padding: 0 0.4em;
+    text-decoration: none;
+}
+
+.CommonHeader__Link--current {
+    font-variation-settings: 'wght' 600;
+    opacity: 1;
+}
+
+.CommonHeader__Link--special {
+    color: var(--branco);
+    padding: 0 0.8em;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.CommonHeader__Link--special::before {
+    background-color: var(--vermelho);
+    content: '';
+    height: 6.75em;
+    left:-0.5em;
+    position: absolute;
+    top: -4em;
+    width: calc(100% + 1em);
+    z-index: -1;
+}
