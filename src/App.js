@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './App.css';
 import {
   BrowserRouter,
@@ -14,12 +14,12 @@ import * as pages from './pages/config'
 
 
 function App() {
-  const [routes, setRoutes] = useRoutes('pages')
+  const setRoutes = useRoutes('pages')[1]
+  const memoSetRoutes = useCallback(setRoutes, [1])
   
-  const loadRoutes = () => {
-    setRoutes({ available: Object.values(pages) })
-  }
-  useEffect(() => loadRoutes(), [])
+  useEffect(() => {
+    memoSetRoutes({ available: Object.values(pages) })
+  }, [memoSetRoutes])
 
   return (
     <BrowserRouter>

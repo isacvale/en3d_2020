@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import Template from '../_templates/Common'
 import config from './config'
 import useRoutes from '../../stores/useRoutes'
@@ -16,14 +16,17 @@ import step_printing from 'assets/step_printing.svg'
 
 const Page = props => {
   const [routes, setRoutes] = useRoutes('pages')
+
+  const memoSetRoutes = useCallback(setRoutes, ['pages'])
+  
   useEffect(() => {
     const thisPage = routes.available.find(page => page.alias === config.alias)
-    setRoutes({ current: thisPage })
-  }, [routes.available])
+    memoSetRoutes({ current: thisPage })
+  }, [routes.available, memoSetRoutes])
 
   return (
     <Template>
-      <section className='CarouselSection'>
+      <section className='CarouselSection' aria-hidden='true'>
         <div className='CarouselSection__Component'>
           <CarouselComponent />
         </div>
@@ -52,7 +55,7 @@ const CarouselComponent = props => {
     >
       { imageLib.map(imgPath =>
         <div className='Carousel-Item' key={imgPath}>
-          <img src={imgPath} />
+          <img src={imgPath} alt=""/>
         </div>
       )}
     </Carousel>
@@ -103,7 +106,7 @@ const Step = props => {
       <div className='TransactionSteps__Step-Count'>
         {count}
       </div>
-      <img src={path} />
+      <img src={path} alt='' />
       <div className='TransactionSteps__Step-Text'>
         { children }
       </div>

@@ -5,7 +5,7 @@ import './Header.css'
 import useRoutes from '../../../stores/useRoutes'
 
 const Header = props => {
-  const [routes, setRoutes] = useRoutes('pages')
+  const [routes] = useRoutes('pages')
   const currentAlias = routes?.current?.alias
   const specialAlias = ['pedidos', 'login', '404', 'home1']
   // const specialAlias = []

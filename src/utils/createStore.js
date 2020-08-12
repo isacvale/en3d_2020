@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const createStore = () => {
   const sections = {}
@@ -23,13 +23,15 @@ const createStore = () => {
 
   const useStore = sectionName => {
     const setNewState = useState()[1]
+    const memoSetNewState = useCallback(setNewState, [1])
+
     useEffect(() => {
-      sections[sectionName].listeners.push(setNewState)
+      sections[sectionName].listeners.push(memoSetNewState)
       return () => {
         sections[sectionName].listeners = sections[sectionName].listeners
-          .filter(callback => callback !== setNewState)
+          .filter(callback => callback !== memoSetNewState)
       }
-    }, [])
+    }, [sectionName, memoSetNewState])
     return [sections[sectionName].state, setState(sectionName)]
   }
 
