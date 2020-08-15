@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const Common = props =>
     <div>
@@ -10,7 +11,7 @@ const Common = props =>
         <div>{props.children}</div>
 
         {/* Footer */}
-        <footer>footer</footer>
+        <Footer />
     </div>
     
 

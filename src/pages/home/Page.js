@@ -86,15 +86,18 @@ const CompanyText = props => {
 const TransactionSteps = props => {
   return (
     <section className='TransactionSteps'>
-      <Step count='1' path={step_xray}>
-        Envie as imagens geradas nos exames de diagnóstico por imagens.
-      </Step>
-      <Step count='2' path={step_3dmodel}>
-        É gerado um modelo tridimensional a partir das imagens, para sua aprovação.
-      </Step>
-      <Step count='3' path={step_printing}>
-        Envie as imagens geradas nos exames de diagnóstico por imagens.
-      </Step>
+      <h1>Como comprar</h1>
+      <div className='TransactionSteps__wrapper'>
+        <Step count='1' path={step_xray}>
+          Envie as imagens geradas nos exames de diagnóstico por imagens.
+        </Step>
+        <Step count='2' path={step_3dmodel}>
+          É gerado um modelo tridimensional a partir das imagens, para sua aprovação.
+        </Step>
+        <Step count='3' path={step_printing}>
+          Envie as imagens geradas nos exames de diagnóstico por imagens.
+        </Step>
+      </div>
     </section>
   )
 }

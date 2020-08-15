@@ -76,23 +76,26 @@
 }
 
 .TransactionSteps {
-    background: var(--cinza);
-    background: #fae4cd;
-    box-sizing: border-box;
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    margin: 12em auto 1em;
     max-width: 1200px;
-    padding: 4em 0;
+    margin: 0 auto;
     width: calc(100% - 3em);
 }
 
 @media (min-width: 800px) {
     .TransactionSteps {
-        margin: 12em auto 1em;
         width: 80%;
     }
+}
+
+.TransactionSteps__wrapper {
+    background: var(--cinza);
+    background: #fae4cd;
+    display: flex;
+    margin: 9em auto 0;
+    justify-content: center;
+    box-sizing: border-box;
+    gap: 2em;
+    padding: 4em 0;
 }
 
 .TransactionSteps__Step {
@@ -100,20 +103,76 @@
     box-shadow: 0.5em 0.5em 1em 0.5em hsla(120, 0%, 0%, 0.15);
     display: flex;
     flex-direction: column;
-    margin: -12em 0;
+    margin: -12em 0 0;
     /* flex: 1; */
     position: relative;
     width: min-content;
 }
 
 .TransactionSteps__Step-Count {
-    font-size: 3em;
+    font-size: 4rem;
+    line-height: 100%;
     font-variation-settings: 'wght' 620;
-    left: 0.5em;
+    left: 1rem;
     position: absolute;
-    top: 0.3em;
+    /* top: 6.8rem; */
+    bottom: 10%;
+    opacity: .2;
 }
 
 .TransactionSteps__Step-Text {
-    padding: 0.5em 2.6em;
+    padding: 0.5em 2.6em 1.6em;
+    padding: 0.5em 2.6em 1.6em;
+    padding: 0.5em .6em 1.6em 4.2em;
+}
+
+section > h1 {
+    color: var(--vermelho);
+    display: inline-block;
+    margin: 0 auto;
+    /* font-family: Lora; */
+    font-family: Jost;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    text-align: center;
+    font-variation-settings: 'wght' 400;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section > h1::before {
+    content: '';
+    height: 0.1em;
+    width: 3em;
+    background: var(--vermelho);
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: -3.5em;
+}
+
+section > h1::after {
+    content: '';
+    height: 0.1em;
+    width: 3em;
+    background: var(--vermelho);
+    display: block;
+    position: absolute;
+    top: 45%;
+    right: -3.5em;
+}
+
+section > h1[data-inverted] {
+    color: white;
+}
+
+section > h1[data-inverted]::before,
+section > h1[data-inverted]::after {
+    background: white;
+}
+
+section > h1[leo] {
+    color: white;
 }

@@ -1,0 +1,57 @@
+.Footer {
+    background-color: var(--vermelho);
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2em;
+    width: calc(100% - 3em);
+}
+
+@media (min-width: 800px) {
+    .Footer {
+        width: 80%;
+    }
+}
+
+.Footer__Form {
+    width: 60%;
+    width: calc(100% - 5vw);
+    max-width: 35em;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    /* align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: right;
+    background: blue; */
+}
+
+.Footer__Form > label {
+    display: block;
+    font-size: 0.8rem;
+}
+
+.Footer__FormLabel {
+    color: white;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-variation-settings: 'wght' 400;
+    margin-right: 1em;
+    margin: 1.5em 0 0.5em;
+    width: 100%;
+}
+
+.Footer__FormInput {
+    /* display: block; */
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    color: var(--preto);
+}
+
+textarea.Footer__FormInput {
+    resize: vertical;
+}
