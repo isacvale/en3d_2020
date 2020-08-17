@@ -2,7 +2,7 @@
     background-color: var(--vermelho);
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 80em;
     padding: 2em;
     width: calc(100% - 3em);
 }

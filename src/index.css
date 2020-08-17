@@ -13,6 +13,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Dimensões padrões com font lock. */
+:root {
+  font-size: calc(10.7px + 0.3vw);
+}
+@media (max-width: 450px) {
+  :root {
+    /* background-color: violet; */
+    font-size: 12px;
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    /* background-color: lawngreen; */
+    font-size: 16px;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

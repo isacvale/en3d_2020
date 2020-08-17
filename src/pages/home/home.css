@@ -2,7 +2,7 @@
     box-shadow: 0.3em 0.3em 0.6em 0.3em hsla(120, 0%, 0%, 0.3);
     margin: 2em auto;
     width: calc(100% - 3em);
-    max-width: 1200px;
+    max-width: 80em;
     transition: all 400ms;
 }
 
@@ -37,8 +37,10 @@
     box-sizing: border-box;
     color: var(--branco);
     font-variation-settings: 'wght' 450;
-    max-width: 45em;
-    min-width: 26em;
+    max-width: 48em;
+    /* min-width: 26em; */
+    /* min-width: 76%; */
+    width: 90%;
     padding: 3.5em 3em 1.5em;
     position: relative;
     top: -7em;
@@ -53,7 +55,7 @@
     font-size: 0.95em;
     margin: 2em auto;
     width: calc(100% - 3em);
-    max-width: 1200px;
+    max-width: 80em;
     /* font-variation-settings: 'wght' 350; */
     columns: 3 20em;
     text-justify: inter-word;
@@ -76,7 +78,7 @@
 }
 
 .TransactionSteps {
-    max-width: 1200px;
+    max-width: 80em;
     margin: 0 auto;
     width: calc(100% - 3em);
 }
@@ -98,6 +100,12 @@
     padding: 4em 0;
 }
 
+.TransactionSteps__wrapper.vertical {
+    align-items: center;
+    flex-direction: column;
+    margin: 2em auto 0;
+}
+
 .TransactionSteps__Step {
     background: var(--branco);
     box-shadow: 0.5em 0.5em 1em 0.5em hsla(120, 0%, 0%, 0.15);
@@ -107,6 +115,20 @@
     /* flex: 1; */
     position: relative;
     width: min-content;
+    max-width: 30%;
+}
+
+.vertical .TransactionSteps__Step {
+    flex-direction: row;
+    margin: 0;
+    max-width: unset;
+}
+
+.vertical .TransactionSteps__Step-Image {
+    flex: 1;
+    width: 20em;
+    max-width: 60vw;
+    /* flex-basis: 60vw; */
 }
 
 .TransactionSteps__Step-Count {
@@ -121,9 +143,18 @@
 }
 
 .TransactionSteps__Step-Text {
-    padding: 0.5em 2.6em 1.6em;
-    padding: 0.5em 2.6em 1.6em;
+    display: flex;
     padding: 0.5em .6em 1.6em 4.2em;
+}
+
+.vertical .TransactionSteps__Step-Text {
+    flex: 1;
+    padding: 1em;
+    width: 10em;
+    max-width: 20vw;
+    /* vertical-align: bottom; */
+    /* flex-basis: 100vw; */
+    align-items: flex-end;
 }
 
 section > h1 {

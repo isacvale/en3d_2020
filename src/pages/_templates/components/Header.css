@@ -12,6 +12,7 @@
     align-items: flex-end;
     display: flex;
     gap: .85em;
+    gap: 1em;
     position: relative;
 }
 
@@ -38,10 +39,11 @@
 
 .CommonHeader__LogoLabel {
     /* font-family: Lora; */
+    font-family: Jost;
     color: var(--cinza-claro);
-    font-variation-settings: 'wght' 250;
+    font-variation-settings: 'wght' 650;
     font-size: 2.2em;
-    margin-bottom: 0.1em;
+    margin-bottom: -0.06em;
 }
 
 .CommonHeader > nav {

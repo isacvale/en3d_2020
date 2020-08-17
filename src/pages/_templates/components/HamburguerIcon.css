@@ -1,0 +1,78 @@
+.HamburguerIcon {
+    align-items: center;
+    background-color: var(--vermelho);
+    border: none;
+    justify-content: center;
+    display: inline-flex;
+    height: 4em;
+    margin: 1em;
+    padding: 0;
+    position: relative;
+    width: 4em;
+}
+
+.HamburguerIcon:focus,
+.HamburguerIcon:hover {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 0.2em hsla(120, 0%, 0%, 0.22);
+}
+
+.HamburguerIcon__Bar,
+.HamburguerIcon__Bar::before,
+.HamburguerIcon__Bar::after {
+    background-color: white;
+    /* border-radius: 0.5em; */
+    /* height: 0.3em; */
+    height: 2px;
+    /* transition:  all 2s, width 0.4s; */
+    transition: all 0.4s;
+    width: 2em;
+    transform-origin: center;
+
+}
+
+.HamburguerIcon__Bar {
+    position: relative;
+}
+
+.HamburguerIcon__Bar::before,
+.HamburguerIcon__Bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.HamburguerIcon__Bar::before {
+    top: -0.5em;
+}
+
+.HamburguerIcon__Bar::after {
+    bottom: -0.5em;
+}
+
+/* .HamburguerIcon__Bar.close,
+.HamburguerIcon__Bar.close::before,
+.HamburguerIcon__Bar.close::after {
+    transform: rotateY(180deg);
+} */
+
+.HamburguerIcon__Bar.close {
+    width: 0;
+    height: 0;
+}
+
+.HamburguerIcon__Bar.close::before,
+.HamburguerIcon__Bar.close::after {
+    top: -0.1em;
+    left: -0.9em;
+}
+
+.HamburguerIcon__Bar.close::before {
+    transform: rotate(45deg);
+}
+
+.HamburguerIcon__Bar.close::after {
+    transform: rotate(-45deg);
+    bottom: unset;
+}

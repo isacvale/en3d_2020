@@ -14,6 +14,9 @@ import step_xray from 'assets/step_xray.svg'
 import step_3dmodel from 'assets/step_3dmodel.svg'
 import step_printing from 'assets/step_printing.svg'
 
+import useDesign from 'stores/useDesign'
+
+import HamburguerIcon from 'pages/_templates/components/HamburguerIcon'
 const Page = props => {
   const [routes, setRoutes] = useRoutes('pages')
 
@@ -26,6 +29,7 @@ const Page = props => {
 
   return (
     <Template>
+      {/* <HamburguerIcon /> */}
       <section className='CarouselSection' aria-hidden='true'>
         <div className='CarouselSection__Component'>
           <CarouselComponent />
@@ -84,10 +88,16 @@ const CompanyText = props => {
 }
 
 const TransactionSteps = props => {
+  const [design] = useDesign('design')
+  const { layout } = design
+
+  const isVertical = ['laptop', 'desktop'].includes(layout) ? '' : 'vertical'
+  // const isVertical = layout !== 'mobile' ? '' : 'vertical'
+
   return (
     <section className='TransactionSteps'>
       <h1>Como comprar</h1>
-      <div className='TransactionSteps__wrapper'>
+      <div className={`TransactionSteps__wrapper ${isVertical}`}>
         <Step count='1' path={step_xray}>
           Envie as imagens geradas nos exames de diagnóstico por imagens.
         </Step>
@@ -109,7 +119,7 @@ const Step = props => {
       <div className='TransactionSteps__Step-Count'>
         {count}
       </div>
-      <img src={path} alt='' />
+      <img className='TransactionSteps__Step-Image' src={path} alt='' />
       <div className='TransactionSteps__Step-Text'>
         { children }
       </div>
