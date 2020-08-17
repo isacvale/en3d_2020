@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import createStore from '../utils/createStore'
 
 const [useDesign, load] = createStore()

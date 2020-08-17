@@ -16,7 +16,7 @@ import step_printing from 'assets/step_printing.svg'
 
 import useDesign from 'stores/useDesign'
 
-import HamburguerIcon from 'pages/_templates/components/HamburguerIcon'
+// import HamburguerIcon from 'pages/_templates/components/HamburguerIcon'
 const Page = props => {
   const [routes, setRoutes] = useRoutes('pages')
 

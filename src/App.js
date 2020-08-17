@@ -24,7 +24,6 @@ const getDesignStore = () => {
           : width >= 500
               ? 'tablet'
               : 'mobile'
-  console.log('layout', layout)
   const design = {
     height,
     orientation,
@@ -61,9 +60,7 @@ function App() {
     memoSetRoutes({ available: Object.values(pages) })
   }, [memoSetRoutes])
 
-  useEffect(() => setUpDesignStore(setDesign, design), [])
-
-  console.log('design', design)
+  useEffect(() => setUpDesignStore(setDesign, design), [setDesign, design])
 
   return (
     <BrowserRouter>

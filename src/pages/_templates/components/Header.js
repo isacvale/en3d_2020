@@ -3,11 +3,10 @@ import { ReactComponent as Logo } from '../../../assets/logo_en3d.svg'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import useRoutes from '../../../stores/useRoutes'
-import useDesign from 'stores/useDesign'
 
 const Header = props => {
   const [routes] = useRoutes('pages')
-  const [design] = useDesign('design')
+  // const [design] = useDesign('design')
 
   const currentAlias = routes?.current?.alias
   const specialAlias = ['pedidos', 'login', '404', 'home1']
