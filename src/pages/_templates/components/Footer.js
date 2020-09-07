@@ -61,18 +61,23 @@ const Footer = props => {
         <button type="submit">Enviar</button>
         <button
           type="button"
-          onClick={ev => fetch('/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: encode({
-              'form-name': 'contato',
-              nome,
-              email,
-              mensagem
+          onClick={ev => {
+            console.log(111111)
+            fetch('/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: encode({
+                'form-name': 'contato',
+                nome,
+                email,
+                mensagem
+              })
             })
-          })}
+            console.log(2222222)
+          }
+        }
         >
           Via code
         </button>
