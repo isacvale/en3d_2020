@@ -1,11 +1,23 @@
 .CommonHeader {
     align-items: flex-end;
+    background: hsla(0, 0%, 100%, 1);
     /* background: yellow; */
     box-sizing: border-box;
     display: flex;
     height: 6em;
     justify-content: space-between;
     padding: 0 1em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: all 400ms;
+    z-index: 10;
+}
+
+.CommonHeader.--reduced {
+    background: hsla(0, 0%, 97%, 0.5);
+    box-shadow: 0 0.7em 0 0 hsla(0, 0%, 0%, 0.07);
+    backdrop-filter: blur(3px);
 }
 
 .CommonHeader__LogoWrapper {
@@ -20,10 +32,12 @@
     position: relative;
     width: fit-content;
     top: -0.5em;
+    transition: all 400ms;
 }
 
 .CommonHeader__Logo > svg {
     position: relative;
+    transition: all 400ms;
 }
 
 .CommonHeader__Logo::before {

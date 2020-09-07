@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react'
 import Template from '../_templates/Common'
-import config from './config'
-import useRoutes from '../../stores/useRoutes'
+import { observer } from 'mobx-react'
+import store from 'stores/store'
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "./home.css"
@@ -14,18 +14,19 @@ import step_xray from 'assets/step_xray.svg'
 import step_3dmodel from 'assets/step_3dmodel.svg'
 import step_printing from 'assets/step_printing.svg'
 
-import useDesign from 'stores/useDesign'
 
 // import HamburguerIcon from 'pages/_templates/components/HamburguerIcon'
-const Page = props => {
-  const [routes, setRoutes] = useRoutes('pages')
+const Page = observer(props => {
+  useEffect(() => store.updatePaginaAtual, [])
 
-  const memoSetRoutes = useCallback(setRoutes, ['pages'])
+  // const [routes, setRoutes] = useRoutes('pages')
+
+  // const memoSetRoutes = useCallback(setRoutes, ['pages'])
   
-  useEffect(() => {
-    const thisPage = routes.available.find(page => page.alias === config.alias)
-    memoSetRoutes({ current: thisPage })
-  }, [routes.available, memoSetRoutes])
+  // useEffect(() => {
+  //   const thisPage = routes.available.find(page => page.alias === config.alias)
+  //   memoSetRoutes({ current: thisPage })
+  // }, [routes.available, memoSetRoutes])
 
   return (
     <Template>
@@ -45,7 +46,7 @@ const Page = props => {
       <TransactionSteps />
     </Template>
   )
-}
+})
 
 const CarouselComponent = props => {
   const imageLib = [ghibli_1, ghibli_2, ghibli_3, ghibli_4, ghibli_5]
@@ -87,12 +88,10 @@ const CompanyText = props => {
   )
 }
 
-const TransactionSteps = props => {
-  const [design] = useDesign('design')
-  const { layout } = design
+const TransactionSteps = observer(props => {
+  const { layout } = store.design
 
   const isVertical = ['laptop', 'desktop'].includes(layout) ? '' : 'vertical'
-  // const isVertical = layout !== 'mobile' ? '' : 'vertical'
 
   return (
     <section className='TransactionSteps'>
@@ -110,7 +109,7 @@ const TransactionSteps = props => {
       </div>
     </section>
   )
-}
+})
 
 const Step = props => {
   const { children, count, path } = props

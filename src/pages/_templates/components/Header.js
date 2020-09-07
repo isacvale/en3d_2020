@@ -1,19 +1,21 @@
 import React from 'react'
+import { observer } from 'mobx-react'
 import { ReactComponent as Logo } from '../../../assets/logo_en3d.svg'
 import { Link } from 'react-router-dom'
 import './Header.css'
-import useRoutes from '../../../stores/useRoutes'
+import store from 'stores/store'
 
-const Header = props => {
-  const [routes] = useRoutes('pages')
-  // const [design] = useDesign('design')
+const Header = observer(props => {
+  const { rotas } = store
+  const { scrollSegment } = store.design
 
-  const currentAlias = routes?.current?.alias
+  const currentAlias = rotas?.currentPage?.alias
   const specialAlias = ['pedidos', 'login', '404', 'home1']
-  // const specialAlias = []
+
+  const size = scrollSegment === 'body' ? '--reduced' : ''
 
   return (
-    <header className='CommonHeader'>
+    <header className={`CommonHeader ${size}`}>
       <div className='CommonHeader__LogoWrapper'>
         <div className='CommonHeader__Logo'>
           <Logo />
@@ -22,7 +24,7 @@ const Header = props => {
       </div>
       <nav>
         {
-          routes.available
+          rotas.availablePages
             // .filter(route => !route.hiddenFromMenu)
             .map(route => {
               const isCurrent = route.alias === currentAlias ? 'CommonHeader__Link--current' : ''
@@ -39,6 +41,6 @@ const Header = props => {
       </nav>
     </header>
   )
-}
+})
 
 export default Header
