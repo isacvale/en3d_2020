@@ -17,11 +17,11 @@ const rotas = {
   availablePages: [],
 }
 
-const rota = {
-  alias: '',
-  path: '',
-  label: ''
-}
+// const rota = {
+//   alias: '',
+//   path: '',
+//   label: ''
+// }
 
 // Declaracao de dominios
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect } from 'react'
 import Template from '../_templates/Common'
 import { observer } from 'mobx-react'
 import store from 'stores/store'

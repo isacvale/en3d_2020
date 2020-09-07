@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react'
 import './App.css';
 import {
@@ -10,7 +10,6 @@ import {
   Home,
   Page404
  } from './pages'
-import * as pages from './pages/config'
 
 import store from 'stores/store'
 
