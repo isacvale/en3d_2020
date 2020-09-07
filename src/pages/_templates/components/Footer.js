@@ -29,7 +29,7 @@ const Footer = props => {
 
         <label>
           <span className='Footer__FormLabel'>Sua mensagem:</span>
-          <textarea className='Footer__FormInput' name='mansagem' />
+          <textarea className='Footer__FormInput' name='mensagem' />
         </label>
 
         <button type="submit">Enviar</button>
