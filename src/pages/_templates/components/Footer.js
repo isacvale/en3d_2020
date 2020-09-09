@@ -58,11 +58,10 @@ const Footer = props => {
           />
         </label>
 
-        <button type="submit">Enviar</button>
         <button
+          className='Footer__Submit-Button'
           type="button"
           onClick={ev => {
-            console.log(111111)
             fetch('/', {
               method: 'POST',
               headers: {
@@ -75,15 +74,30 @@ const Footer = props => {
                 mensagem
               })
             })
-            console.log(2222222)
           }
         }
         >
-          Via code
+          Enviar mensagem
         </button>
+
+        <MensagemConfirmacao />
       </form>
     </section>
   )
 }
+
+const MensagemConfirmacao = props => {
+  const { display = false, loading = false, success = false } = props
+  let feedback
+  if (!display) feedback = ''
+  else if (loading) feedback = 'Por favor, aguarde um momento...'
+  else if (success) feedback = 'Envio concluído com sucesso.'
+  else feedback = 'Houve um erro. Tente enviar a mensagem novamente.'
+
+  return (
+    <div>{feedback}</div>
+  )
+}
+
 
 export default Footer

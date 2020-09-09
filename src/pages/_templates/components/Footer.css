@@ -55,3 +55,7 @@
 textarea.Footer__FormInput {
     resize: vertical;
 }
+
+.Footer__Submit-Button {
+    padding: 1em;
+}
