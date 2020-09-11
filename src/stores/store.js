@@ -1,8 +1,12 @@
 import { action, observable } from 'mobx'
 import * as pages from 'pages/config'
+import netlifyIdentity from 'netlify-identity-widget'
 
 // Declaracao de dados
 const dados = {
+  isAuthenticated: false,
+  userName: '',
+  user: null,
 }
 
 const design = {
@@ -37,6 +41,40 @@ const store = observable({
     }
     this.inicializarDesign()
     this.inicializarRotas()
+  },
+
+  // Metodos de autenticacao
+  inicializarIdentity () {
+    netlifyIdentity.init()
+    const self = this
+    const currentUser = netlifyIdentity.currentUser()
+    this.populateUserData(currentUser)
+    netlifyIdentity.on('login', user => {
+      self.populateUserData(user)
+      netlifyIdentity.close()
+    })
+    netlifyIdentity.on('logout', () => {
+      self.populateUserData()
+      netlifyIdentity.close()
+    })
+  },
+
+  populateUserData (user) {
+    this.dados.isAuthenticated = !!user
+    this.dados.userName = user?.user_metadata.full_name
+    this.dados.user = user
+  },
+
+  openIdentityPanel () {
+    netlifyIdentity.open()
+  },
+
+  authenticate (callback) {
+    netlifyIdentity.open()
+  },
+
+  signout (callback) {
+    netlifyIdentity.logout()
   },
 
   // Métodos de dados
@@ -91,11 +129,18 @@ const store = observable({
     window.addEventListener('scroll', this.updateScrolling)
   },
 }, {
+  authenticate: action.bound,
   inicializarDesign: action.bound,
+  inicializarIdentity: action.bound,
+  populateUserData: action.bound,
+  updatePaginaAtual: action.bound,
   updateScreenSize: action.bound,
   updateScrolling: action.bound,
   inicializarRotas: action.bound,
   inicializarStore: action.bound,
+  signout: action.bound,
 })
+
+window.store = store
 
 export default store

@@ -8,6 +8,7 @@ import store from 'stores/store'
 const Header = observer(props => {
   const { rotas } = store
   const { scrollSegment } = store.design
+  const { isAuthenticated } = store.dados
 
   const currentAlias = rotas?.currentPage?.alias
   const specialAlias = ['pedidos', 'login', '404', 'home1']
@@ -38,6 +39,21 @@ const Header = observer(props => {
               )
             })
         }
+        <button
+          className={`CommonHeader__Link`}
+          onClick={store.openIdentityPanel}
+        >
+          {isAuthenticated ? 'Logout' : 'Login'}
+        </button>
+        {/* {
+          store.dados.isAuthenticated
+            ? <button
+              className={`CommonHeader__Link`}
+            >Log out</button>
+            : <button
+              className={`CommonHeader__Link`}
+            >Login</button>
+        } */}
       </nav>
     </header>
   )

@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './stores/store'
+
+store.inicializarIdentity()
+
 
 ReactDOM.render(
   <React.StrictMode>
